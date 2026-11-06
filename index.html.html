@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AB Home Services | Medina, OH Premier Property Care</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            700: '#102a43',
+                            800: '#0b1b2b',
+                            900: '#0a2540',
+                        },
+                        emerald: {
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        amber: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.95) 0%, rgba(11, 27, 43, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+
+    <!-- Top Emergency / Contact Header Bar -->
+    <div class="bg-navy-900 text-slate-300 text-xs sm:text-sm py-2 px-4 border-b border-navy-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+                <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-emerald-500"></i> Serving Medina, OH & Surrounding Areas</span>
+                <span class="hidden md:inline-block text-navy-700">|</span>
+                <span class="inline-flex items-center gap-1.5"><i class="fa-solid fa-clock text-amber-500"></i> Mon - Sat: 7:00 AM - 7:00 PM</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:2163169814" class="hover:text-emerald-500 transition-colors inline-flex items-center gap-1.5 font-semibold text-white">
+                    <i class="fa-solid fa-phone text-emerald-500"></i> (216) 316-9814
+                </a>
+                <a href="mailto:abhomeservicing@gmail.com" class="hover:text-emerald-500 transition-colors inline-flex items-center gap-1.5">
+                    <i class="fa-solid fa-envelope text-emerald-500"></i> abhomeservicing@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center text-emerald-500 font-bold text-2xl shadow-md group-hover:bg-emerald-600 group-hover:text-white transition-all">
+                        <i class="fa-solid fa-house-chimney-crack"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-navy-900 block leading-none">AB HOME</span>
+                        <span class="text-xs font-semibold tracking-widest text-emerald-600 uppercase block mt-1">Services • Medina, OH</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                    <a href="#services" class="hover:text-emerald-600 transition-colors">Our Services</a>
+                    <a href="#our-commitment" class="hover:text-emerald-600 transition-colors">Our Commitment</a>
+                    <a href="#about" class="hover:text-emerald-600 transition-colors">Our Story & Dream</a>
+                    <a href="#reviews" class="hover:text-emerald-600 transition-colors">Neighbor Reviews</a>
+                    <a href="#contact" class="hover:text-emerald-600 transition-colors">Contact Us</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <button onclick="toggleMyBookingsModal()" class="relative inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 font-medium text-sm transition">
+                        <i class="fa-solid fa-calendar-check text-emerald-600"></i> My Scheduled Jobs
+                        <span id="bookingBadge" class="hidden absolute -top-1.5 -right-1.5 bg-amber-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+                    </button>
+                    <a href="#booking" class="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all inline-flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-plus"></i> Schedule Service
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none">
+                    <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Container -->
+        <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-100 bg-white px-4 pt-2 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-emerald-600">Our Services</a>
+            <a href="#our-commitment" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-emerald-600">Our Commitment</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-emerald-600">Our Story & Dream</a>
+            <a href="#reviews" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-emerald-600">Neighbor Reviews</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-slate-700 font-medium hover:text-emerald-600">Contact Us</a>
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <button onclick="toggleMobileMenu(); toggleMyBookingsModal()" class="w-full text-center py-2.5 rounded-lg border border-slate-200 text-slate-700 font-medium">
+                    <i class="fa-solid fa-calendar-check text-emerald-600 mr-2"></i> View My Scheduled Jobs
+                </button>
+                <a href="#booking" onclick="toggleMobileMenu()" class="w-full text-center bg-emerald-600 text-white py-2.5 rounded-lg font-semibold">
+                    Schedule Service Online
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/40 px-3.5 py-1.5 rounded-full text-emerald-300 text-xs sm:text-sm font-medium">
+                        <i class="fa-solid fa-heart text-emerald-400"></i> Passionate Medina Locals Pursuing the Business Dream
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Dedicated Hard Work For <br class="hidden sm:inline"><span class="text-emerald-400">Our Medina Neighbors</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal">
+                        At AB Home Services, we are passionate, relentless workers pursuing our dream of business ownership right here in Medina, Ohio. We build real relationships with our community by giving clear, set prices directly over the phone!
+                    </p>
+                    
+                    <!-- Dual CTAs -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#booking" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-navy-900 font-bold px-8 py-3.5 rounded-xl shadow-lg transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calendar-days"></i> Schedule Service Online
+                        </a>
+                        <a href="tel:2163169814" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold px-8 py-3.5 rounded-xl transition-all text-center flex items-center justify-center gap-2 backdrop-blur-sm">
+                            <i class="fa-solid fa-phone text-emerald-400"></i> Call (216) 316-9814 For Pricing
+                        </a>
+                    </div>
+
+                    <!-- Quick Direct Contact Links -->
+                    <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-slate-300 text-sm">
+                        <a href="tel:2163169814" class="hover:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-emerald-400"></i> Call Owners Directly: (216) 316-9814
+                        </a>
+                        <a href="mailto:abhomeservicing@gmail.com" class="hover:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-emerald-400"></i> abhomeservicing@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Trust Badge Hero Card -->
+                <div class="lg:col-span-5">
+                    <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl p-6 sm:p-8 text-white space-y-6 shadow-2xl">
+                        <h3 class="text-xl font-bold border-b border-white/10 pb-3 flex items-center justify-between">
+                            <span>Why Medina Trusts Us</span>
+                            <i class="fa-solid fa-handshake text-emerald-400"></i>
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Direct Set Pricing Over The Phone</h4>
+                                    <p class="text-xs text-slate-300 mt-0.5">No guessing or surprise bills. We talk through your property's exact needs and set the price over the phone.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-person-digging"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Unmatched Work Ethic</h4>
+                                    <p class="text-xs text-slate-300 mt-0.5">We are building our business on pure effort, reliability, and treating every home as if it were our own.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-house-chimney-user"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-white">Neighbor-to-Neighbor Service</h4>
+                                    <p class="text-xs text-slate-300 mt-0.5">Serving Medina, Brunswick, Wadsworth, and nearby communities with pride and dedication.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="pt-2 bg-white/5 rounded-xl p-3 text-center border border-white/5">
+                            <span class="text-xs text-amber-300 font-medium"><i class="fa-solid fa-star text-amber-400 mr-1"></i> Medina's Hardworking Local Business Owners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Offered Grid -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <h2 class="text-xs uppercase font-extrabold tracking-widest text-emerald-600 mb-2">Our Capabilities</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-navy-900 tracking-tight">Services Offered in Medina, OH</p>
+            <p class="text-slate-600 mt-3 text-base">Select any service to request scheduling. Call us directly at (216) 316-9814 for your set phone price!</p>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="serviceFilters">
+            <button onclick="filterServices('all')" class="filter-btn active bg-navy-900 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full transition-all">All Services (8)</button>
+            <button onclick="filterServices('yard')" class="filter-btn bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full hover:bg-slate-100 transition-all">Lawn & Yard Care</button>
+            <button onclick="filterServices('exterior')" class="filter-btn bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full hover:bg-slate-100 transition-all">Exterior Cleaning</button>
+            <button onclick="filterServices('seasonal')" class="filter-btn bg-white border border-slate-200 text-slate-700 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full hover:bg-slate-100 transition-all">Specialty & Seasonal</button>
+        </div>
+
+        <!-- Services Grid -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="servicesGrid">
+
+            <!-- Card 1: Leaf Raking & Blowing -->
+            <div class="service-card yard bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Leaf Raking & Blowing</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Keep your yard healthy and pristine with complete leaf gathering, lawn clearing, and landscape bed blowouts.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Leaf Raking & Blowing')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Pressure Washing -->
+            <div class="service-card exterior bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-soap"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Pressure Washing</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Deep surface cleaning for vinyl siding, concrete driveways, walkways, patios, and outdoor decks.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Pressure Washing (Siding & Driveways)')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Gutter Clean Out -->
+            <div class="service-card exterior bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-water"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Gutter Clean Out</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Complete removal of organic debris, leaves, and blockages to ensure clean water flow and foundation protection.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Gutter Clean Out')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 4: Lawn Mowing -->
+            <div class="service-card yard bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Lawn Mowing & Edging</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Regular or one-time lawn cuts including precise perimeter string trimming and hard surface blowing.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Lawn Mowing')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 5: Window Cleaning -->
+            <div class="service-card exterior bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-hand-sparkles"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Window Cleaning</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Streak-free exterior and interior glass cleaning to make your home shine bright inside and out.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Window Cleaning')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 6: Trash Bin Clean Out -->
+            <div class="service-card seasonal bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Trash Bin Clean Out</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Sanitizing, high-pressure cleaning, and deodorizing for smelly municipal trash and recycling containers.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Trash Bin Clean Out')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 7: Holiday Lighting -->
+            <div class="service-card seasonal bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 text-red-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Holiday Lighting</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Custom holiday light layout, professional setup, in-season maintenance, and careful post-holiday removal.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Holiday Lighting')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 8: Junk Removal -->
+            <div class="service-card seasonal bg-white border border-slate-200 rounded-2xl p-6 card-hover flex flex-col justify-between">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-dumpster"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-navy-900 mb-2">Junk Removal</h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                        Hauling away old furniture, yard debris, basement clutter, and garage overflow safely and quickly.
+                    </p>
+                </div>
+                <div>
+                    <div class="pt-4 border-t border-slate-100 flex justify-between items-center mb-4">
+                        <span class="text-xs text-slate-500 font-medium">Pricing</span>
+                        <span class="text-emerald-600 font-bold text-xs"><i class="fa-solid fa-phone mr-1"></i> Exact Price Over Phone</span>
+                    </div>
+                    <button onclick="quickBook('Junk Removal')" class="w-full py-2 bg-navy-900 hover:bg-navy-800 text-white text-xs font-semibold rounded-lg transition text-center">
+                        Schedule Service
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Community Commitment Section (Replaced Pricing Calculator/Guides) -->
+    <section id="our-commitment" class="bg-slate-100 py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-600">Honest & Direct Service</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">Our Commitment To Our Neighbors</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl mx-auto">
+                    We know that every home and yard in Medina is unique. That’s why we give you a set, exact price over the phone—no automated calculations, no hidden charges, and no surprises.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden grid lg:grid-cols-12">
+                <!-- Info Column -->
+                <div class="lg:col-span-7 p-6 sm:p-8 space-y-6">
+                    <h3 class="text-xl font-bold text-navy-900 flex items-center gap-2">
+                        <i class="fa-solid fa-heart text-emerald-600"></i> Local Passion & Hard Work
+                    </h3>
+
+                    <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        <div class="flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <p><strong class="text-slate-800">Direct Contact With The Owners:</strong> When you call AB Home Services, you speak directly with us—the owners working in the field every day.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <p><strong class="text-slate-800">Clear Set Pricing Over Phone:</strong> We listen to your specific property details and agree on a firm set price before any work begins.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-7 h-7 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <p><strong class="text-slate-800">Building a Business Dream:</strong> We are pursuing our passion through hard work, reliability, and treating your home with genuine care.</p>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-900 space-y-1">
+                        <p class="font-bold flex items-center gap-1.5"><i class="fa-solid fa-users text-emerald-600"></i> Serving Medina & Surrounding Areas</p>
+                        <p class="text-emerald-800">
+                            Proudly caring for lawns, driveways, gutters, and homes across Medina, Brunswick, Wadsworth, and neighboring communities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Call Box Column -->
+                <div class="lg:col-span-5 bg-navy-900 p-6 sm:p-8 text-white flex flex-col justify-between text-center lg:text-left">
+                    <div class="space-y-4">
+                        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full font-semibold uppercase tracking-wider inline-block">Direct Owner Line</span>
+                        <h3 class="text-2xl font-extrabold text-white">Speak With Us Directly For Your Set Price</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            Have questions about our services or need work done soon? Give us a call today!
+                        </p>
+
+                        <div class="bg-navy-800 p-4 rounded-xl border border-navy-700 space-y-3 my-4">
+                            <div class="text-emerald-400 font-extrabold text-2xl">
+                                <i class="fa-solid fa-phone mr-1"></i> (216) 316-9814
+                            </div>
+                            <p class="text-[11px] text-slate-300">
+                                Mon - Sat: 7:00 AM – 7:00 PM
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-navy-800 space-y-3">
+                        <a href="tel:2163169814" class="block w-full bg-emerald-500 hover:bg-emerald-600 text-navy-900 font-bold py-3 px-4 rounded-xl shadow transition text-sm text-center">
+                            <i class="fa-solid fa-phone mr-1"></i> Call For Set Price: 216-316-9814
+                        </a>
+                        <a href="mailto:abhomeservicing@gmail.com" class="block w-full bg-white/10 hover:bg-white/20 text-white font-semibold py-2.5 px-4 rounded-xl transition text-xs text-center border border-white/10">
+                            <i class="fa-solid fa-envelope mr-1"></i> abhomeservicing@gmail.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fully Functional Booking & Scheduling Tool -->
+    <section id="booking" class="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-600">Online Scheduling</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">Book Your Service Appointment</h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-2">Pick your required services and preferred schedule. We will call you directly to confirm exact details and set price!</p>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+            <!-- Progress Bar -->
+            <div class="bg-slate-50 border-b border-slate-200 p-4 sm:p-6">
+                <div class="flex justify-between items-center max-w-2xl mx-auto text-xs sm:text-sm font-bold">
+                    <div id="stepHeader1" class="text-emerald-600 flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">1</span>
+                        <span class="hidden sm:inline">Select Services</span>
+                    </div>
+                    <div class="h-0.5 bg-slate-200 flex-1 mx-2 sm:mx-4"></div>
+                    <div id="stepHeader2" class="text-slate-400 flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs">2</span>
+                        <span class="hidden sm:inline">Property Info</span>
+                    </div>
+                    <div class="h-0.5 bg-slate-200 flex-1 mx-2 sm:mx-4"></div>
+                    <div id="stepHeader3" class="text-slate-400 flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs">3</span>
+                        <span class="hidden sm:inline">Date & Time</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="bookingForm" onsubmit="submitBooking(event)" class="p-6 sm:p-10">
+                
+                <!-- STEP 1: Choose Services -->
+                <div id="bookingStep1" class="space-y-6">
+                    <h3 class="text-lg font-bold text-navy-900">Select Requested Service(s):</h3>
+                    <div class="grid sm:grid-cols-2 gap-3" id="bookingServicesGrid">
+                        <!-- Dynamic checkboxes generated via JS -->
+                    </div>
+                    <div class="flex justify-end pt-4">
+                        <button type="button" onclick="nextStep(2)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl transition text-sm">
+                            Next: Property Info <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 2: Contact & Address -->
+                <div id="bookingStep2" class="hidden space-y-6">
+                    <h3 class="text-lg font-bold text-navy-900">Your Contact & Medina Property Details:</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Full Name *</label>
+                            <input type="text" id="book_name" required placeholder="John Smith" class="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
+                            <input type="tel" id="book_phone" required placeholder="(216) 316-9814" class="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
+                        </div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Email Address *</label>
+                            <input type="email" id="book_email" required placeholder="john@example.com" class="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Service Street Address *</label>
+                            <input type="text" id="book_address" required placeholder="123 Court St, Medina, OH" class="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1">Special Notes / Details (Optional)</label>
+                        <textarea id="book_notes" rows="3" placeholder="Gate codes, pet warnings, specific areas of focus, etc." class="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm"></textarea>
+                    </div>
+
+                    <div class="flex justify-between pt-4">
+                        <button type="button" onclick="nextStep(1)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-2.5 rounded-xl transition text-sm">
+                            <i class="fa-solid fa-arrow-left mr-1"></i> Back
+                        </button>
+                        <button type="button" onclick="nextStep(3)" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-2.5 rounded-xl transition text-sm">
+                            Next: Pick Date & Time <i class="fa-solid fa-arrow-right ml-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: Date & Time Slot -->
+                <div id="bookingStep3" class="hidden space-y-6">
+                    <h3 class="text-lg font-bold text-navy-900">Choose Preferred Appointment Schedule:</h3>
+                    
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2">Select Date *</label>
+                            <input type="date" id="book_date" required class="w-full p-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-emerald-500 focus:outline-none text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-2">Preferred Time Slot *</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="time_slot" value="Morning (8:00 AM - 12:00 PM)" checked class="text-emerald-600 focus:ring-emerald-500">
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-800 block">Morning Arrival</span>
+                                        <span class="text-[11px] text-slate-500">8:00 AM – 12:00 PM</span>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="time_slot" value="Afternoon (12:00 PM - 4:00 PM)" class="text-emerald-600 focus:ring-emerald-500">
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-800 block">Afternoon Arrival</span>
+                                        <span class="text-[11px] text-slate-500">12:00 PM – 4:00 PM</span>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                                    <input type="radio" name="time_slot" value="Late Afternoon (4:00 PM - 7:00 PM)" class="text-emerald-600 focus:ring-emerald-500">
+                                    <div>
+                                        <span class="text-xs font-bold text-slate-800 block">Late Afternoon</span>
+                                        <span class="text-[11px] text-slate-500">4:00 PM – 7:00 PM</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl flex items-start gap-3">
+                        <i class="fa-solid fa-phone-volume text-emerald-600 text-base shrink-0 mt-0.5"></i>
+                        <p class="text-xs text-emerald-900 leading-relaxed">
+                            <strong>Direct Owner Confirmation:</strong> Submitting reserves your requested slot. We will call you directly to confirm your set price over the phone before we arrive!
+                        </p>
+                    </div>
+
+                    <div class="flex justify-between pt-4">
+                        <button type="button" onclick="nextStep(2)" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold px-6 py-2.5 rounded-xl transition text-sm">
+                            <i class="fa-solid fa-arrow-left mr-1"></i> Back
+                        </button>
+                        <button type="submit" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-2.5 rounded-xl transition text-sm shadow-md">
+                            <i class="fa-solid fa-check mr-1"></i> Submit Booking Request
+                        </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-navy-900 text-white px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-400">Our Story & Mission</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                        Driven by Passion & Hard Work in Medina, Ohio
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        At <strong class="text-white">AB Home Services</strong>, we are passionate, hard-working local entrepreneurs pursuing our lifelong dream of business ownership right here in Medina.
+                    </p>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        We believe in honest work, clear direct phone conversations, and building genuine relationships with our neighbors. Whether it's leaf blowing, pressure washing siding and driveways, clearing gutters, cleaning windows, sanitizing trash bins, hanging holiday lights, or junk removal—we give 100% effort on every single project.
+                    </p>
+
+                    <div class="grid sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <i class="fa-solid fa-phone-volume text-emerald-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-white">Direct Set Pricing</h4>
+                            <p class="text-xs text-slate-400 mt-1">Clear set prices given directly over the phone.</p>
+                        </div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10">
+                            <i class="fa-solid fa-hands-holding-circle text-emerald-400 text-xl mb-2"></i>
+                            <h4 class="font-bold text-sm text-white">Community First</h4>
+                            <p class="text-xs text-slate-400 mt-1">Proudly serving and helping our Medina neighbors.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6 relative">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1000&q=80" alt="Home Services Medina OH" class="w-full h-80 sm:h-96 object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-transparent to-transparent flex items-end p-6">
+                            <div class="bg-white/10 backdrop-blur-md p-4 rounded-xl border border-white/20 w-full text-center">
+                                <span class="text-xs text-slate-200">Have questions? Call owners directly anytime:</span>
+                                <a href="tel:2163169814" class="block font-bold text-emerald-400 text-lg hover:underline mt-0.5">(216) 316-9814</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews & Testimonials Section -->
+    <section id="reviews" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-600">Local Feedback</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-navy-900 mt-1">What Our Medina Neighbors Say</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Review 1 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                <div class="flex text-amber-400 text-sm gap-1">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 text-xs sm:text-sm italic leading-relaxed">
+                    "AB Home Services did a fantastic job with leaf raking and gutter cleanouts on my Medina property. They gave a set price over the phone, showed up right on time, and worked so hard!"
+                </p>
+                <div class="border-t border-slate-100 pt-3 flex items-center justify-between">
+                    <span class="font-bold text-xs text-navy-900">Mark T.</span>
+                    <span class="text-[11px] text-slate-400">Medina, OH</span>
+                </div>
+            </div>
+
+            <!-- Review 2 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                <div class="flex text-amber-400 text-sm gap-1">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 text-xs sm:text-sm italic leading-relaxed">
+                    "Had my driveway and siding pressure washed. Looks brand new! You can tell these young men really care about building a great reputation in our community."
+                </p>
+                <div class="border-t border-slate-100 pt-3 flex items-center justify-between">
+                    <span class="font-bold text-xs text-navy-900">Sarah K.</span>
+                    <span class="text-[11px] text-slate-400">Brunswick / Medina Area</span>
+                </div>
+            </div>
+
+            <!-- Review 3 -->
+            <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+                <div class="flex text-amber-400 text-sm gap-1">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+                <p class="text-slate-600 text-xs sm:text-sm italic leading-relaxed">
+                    "Super clean trash bin sanitizing and fast junk removal! Fair set phone prices and awesome communication from start to finish. I will definitely hire them again."
+                </p>
+                <div class="border-t border-slate-100 pt-3 flex items-center justify-between">
+                    <span class="font-bold text-xs text-navy-900">Dave M.</span>
+                    <span class="text-[11px] text-slate-400">Medina, OH</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact & Banner -->
+    <section id="contact" class="bg-slate-100 py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto bg-navy-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl relative overflow-hidden">
+            <div class="grid lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 space-y-4">
+                    <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-400">Get In Touch Directly</span>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold">Ready to care for your Medina home?</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed max-w-xl">
+                        Call, email, or fill out a message below. We provide quick responses and set phone prices for any property in Medina, OH.
+                    </p>
+                    
+                    <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                        <a href="tel:2163169814" class="bg-emerald-500 hover:bg-emerald-600 text-navy-900 font-bold px-6 py-3 rounded-xl transition text-center inline-flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-phone"></i> Call (216) 316-9814
+                        </a>
+                        <a href="mailto:abhomeservicing@gmail.com" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold px-6 py-3 rounded-xl transition text-center inline-flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-envelope"></i> abhomeservicing@gmail.com
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="lg:col-span-5 bg-white text-slate-800 p-6 rounded-2xl shadow-lg">
+                    <form onsubmit="handleContactSubmit(event)" class="space-y-3">
+                        <h3 class="font-bold text-navy-900 text-base mb-2">Send Us a Quick Message</h3>
+                        <div>
+                            <input type="text" required placeholder="Your Name" class="w-full p-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <input type="text" required placeholder="Phone Number or Email" class="w-full p-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <textarea rows="3" required placeholder="Tell us how we can help with your property..." class="w-full p-2.5 rounded-lg border border-slate-300 text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-navy-900 hover:bg-navy-800 text-white font-bold py-2.5 rounded-lg text-xs transition">
+                            Send Message To Owners
+                        </button>
+                    </form>
+                    <div id="contactSuccess" class="hidden text-center text-xs text-emerald-600 font-bold mt-3">
+                        <i class="fa-solid fa-circle-check"></i> Thank you! Message sent successfully.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-navy-800 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 text-xs">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-3">
+                <div class="flex items-center gap-2 text-white font-extrabold text-base">
+                    <i class="fa-solid fa-house-chimney-crack text-emerald-500"></i> AB HOME SERVICES
+                </div>
+                <p class="text-slate-400 leading-relaxed">
+                    Passionate, hardworking home maintenance professionals pursuing our business dream in Medina, Ohio.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px]">All Services Offered</h4>
+                <ul class="space-y-2">
+                    <li>Leaf Raking & Blowing</li>
+                    <li>Pressure Washing</li>
+                    <li>Gutter Clean Out</li>
+                    <li>Lawn Mowing & Edging</li>
+                    <li>Window Cleaning</li>
+                    <li>Trash Bin Clean Out</li>
+                    <li>Holiday Lighting</li>
+                    <li>Junk Removal</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px]">Service Location</h4>
+                <p class="text-slate-400 leading-relaxed">
+                    Based out of <strong>Medina, OH 44256</strong>.<br>
+                    Serving Medina County, Brunswick, Wadsworth, Medina Township & neighboring communities.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-bold text-white mb-3 uppercase tracking-wider text-[11px]">Direct Contact</h4>
+                <p class="space-y-1">
+                    <span class="block">Phone: <a href="tel:2163169814" class="text-emerald-400 hover:underline">216-316-9814</a></span>
+                    <span class="block">Email: <a href="mailto:abhomeservicing@gmail.com" class="text-emerald-400 hover:underline">abhomeservicing@gmail.com</a></span>
+                </p>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto pt-6 border-t border-navy-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500">
+            <p>&copy; <span id="yearSpan"></span> AB Home Services. All rights reserved. Medina, Ohio.</p>
+            <p>Driven by Hard Work & Passion</p>
+        </div>
+    </footer>
+
+    <!-- MODAL: View Scheduled Bookings -->
+    <div id="bookingsModal" class="fixed inset-0 bg-navy-900/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center border-b border-slate-100 pb-3">
+                <h3 class="font-bold text-navy-900 text-lg flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-check text-emerald-600"></i> My Scheduled Jobs
+                </h3>
+                <button onclick="toggleMyBookingsModal()" class="text-slate-400 hover:text-slate-600">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div id="modalBookingsList" class="space-y-3">
+                <!-- Dynamic Content via JavaScript -->
+            </div>
+
+            <div class="pt-2 text-right">
+                <button onclick="toggleMyBookingsModal()" class="px-5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-lg">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Booking Confirmation -->
+    <div id="confirmationModal" class="fixed inset-0 bg-navy-900/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-8 text-center space-y-4">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-2xl font-extrabold text-navy-900">Booking Requested!</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+                Thank you for choosing AB Home Services! We have saved your requested appointment slot in Medina, OH.
+            </p>
+            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-left text-xs space-y-1">
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Request ID:</span>
+                    <span id="conf_id" class="font-bold text-navy-900"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Requested Date:</span>
+                    <span id="conf_date" class="font-bold text-emerald-600"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-slate-500">Address:</span>
+                    <span id="conf_address" class="font-bold text-navy-900 truncate max-w-[200px]"></span>
+                </div>
+            </div>
+            <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-900 text-left">
+                <i class="fa-solid fa-phone mr-1 text-emerald-600"></i> We will call you at the provided number to confirm your schedule and give you your exact set price over the phone!
+            </div>
+            <div class="pt-2 space-y-2">
+                <a href="tel:2163169814" class="block w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs">
+                    <i class="fa-solid fa-phone mr-1"></i> Call Owners Directly: (216) 316-9814
+                </a>
+                <button onclick="closeConfirmationModal()" class="block w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold rounded-xl text-xs">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // All Services Master List
+        const SERVICES = [
+            "Leaf Raking & Blowing",
+            "Pressure Washing (Siding & Driveways)",
+            "Gutter Clean Out",
+            "Lawn Mowing & Edging",
+            "Window Cleaning",
+            "Trash Bin Clean Out",
+            "Holiday Lighting",
+            "Junk Removal"
+        ];
+
+        let activeStep = 1;
+
+        // Initialize Page
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('yearSpan').textContent = new Date().getFullYear();
+            renderBookingServiceCheckboxes();
+            updateBookingBadge();
+            
+            // Set min date for datepicker to today
+            const datePicker = document.getElementById('book_date');
+            if (datePicker) {
+                const today = new Date().toISOString().split('T')[0];
+                datePicker.min = today;
+                datePicker.value = today;
+            }
+        });
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        // Services Filter Logic
+        function filterServices(category) {
+            const cards = document.querySelectorAll('.service-card');
+            const btns = document.querySelectorAll('.filter-btn');
+
+            btns.forEach(btn => {
+                btn.classList.remove('active', 'bg-navy-900', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-700');
+            });
+            event.target.classList.add('active', 'bg-navy-900', 'text-white');
+            event.target.classList.remove('bg-white', 'text-slate-700');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Render Booking Form Service Options
+        function renderBookingServiceCheckboxes() {
+            const container = document.getElementById('bookingServicesGrid');
+            container.innerHTML = SERVICES.map((service, index) => `
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-slate-200 hover:bg-slate-50 cursor-pointer">
+                    <input type="checkbox" name="book_service" value="${service}" ${index === 0 ? 'checked' : ''} class="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500">
+                    <span class="text-xs font-semibold text-slate-800">${service}</span>
+                </label>
+            `).join('');
+        }
+
+        function quickBook(serviceName) {
+            renderBookingServiceCheckboxes();
+            const bookEl = document.querySelector(`input[name="book_service"][value="${serviceName}"]`);
+            if (bookEl) bookEl.checked = true;
+            document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Booking Wizard Navigation
+        function nextStep(step) {
+            activeStep = step;
+            document.getElementById('bookingStep1').classList.add('hidden');
+            document.getElementById('bookingStep2').classList.add('hidden');
+            document.getElementById('bookingStep3').classList.add('hidden');
+
+            document.getElementById(`bookingStep${step}`).classList.remove('hidden');
+
+            // Header Highlights
+            for (let i = 1; i <= 3; i++) {
+                const header = document.getElementById(`stepHeader${i}`);
+                if (i <= step) {
+                    header.className = 'text-emerald-600 flex items-center gap-2 font-bold';
+                    header.querySelector('span:first-child').className = 'w-7 h-7 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs';
+                } else {
+                    header.className = 'text-slate-400 flex items-center gap-2';
+                    header.querySelector('span:first-child').className = 'w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs';
+                }
+            }
+        }
+
+        // Submit Booking & Save to LocalStorage
+        function submitBooking(event) {
+            event.preventDefault();
+
+            const selectedServices = Array.from(document.querySelectorAll('input[name="book_service"]:checked')).map(cb => cb.value);
+            if (selectedServices.length === 0) {
+                alert('Please select at least one service to proceed.');
+                return;
+            }
+
+            const name = document.getElementById('book_name').value;
+            const phone = document.getElementById('book_phone').value;
+            const email = document.getElementById('book_email').value;
+            const address = document.getElementById('book_address').value;
+            const notes = document.getElementById('book_notes').value;
+            const date = document.getElementById('book_date').value;
+            const slot = document.querySelector('input[name="time_slot"]:checked').value;
+
+            const bookingId = 'AB-' + Math.floor(100000 + Math.random() * 900000);
+
+            const newBooking = {
+                id: bookingId,
+                services: selectedServices,
+                name,
+                phone,
+                email,
+                address,
+                notes,
+                date,
+                slot,
+                createdAt: new Date().toLocaleDateString()
+            };
+
+            // Save in LocalStorage
+            const existingBookings = JSON.parse(localStorage.getItem('ab_bookings') || '[]');
+            existingBookings.push(newBooking);
+            localStorage.setItem('ab_bookings', JSON.stringify(existingBookings));
+
+            // Populate Confirmation Modal
+            document.getElementById('conf_id').textContent = bookingId;
+            document.getElementById('conf_date').textContent = `${date} (${slot})`;
+            document.getElementById('conf_address').textContent = address;
+
+            document.getElementById('confirmationModal').classList.remove('hidden');
+            updateBookingBadge();
+
+            // Reset Form & Return to Step 1
+            document.getElementById('bookingForm').reset();
+            nextStep(1);
+        }
+
+        function closeConfirmationModal() {
+            document.getElementById('confirmationModal').classList.add('hidden');
+        }
+
+        // LocalStorage Bookings Modal Management
+        function updateBookingBadge() {
+            const existingBookings = JSON.parse(localStorage.getItem('ab_bookings') || '[]');
+            const badge = document.getElementById('bookingBadge');
+            if (existingBookings.length > 0) {
+                badge.textContent = existingBookings.length;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+        }
+
+        function toggleMyBookingsModal() {
+            const modal = document.getElementById('bookingsModal');
+            const container = document.getElementById('modalBookingsList');
+
+            if (modal.classList.contains('hidden')) {
+                const bookings = JSON.parse(localStorage.getItem('ab_bookings') || '[]');
+                if (bookings.length === 0) {
+                    container.innerHTML = '<p class="text-xs text-slate-500 py-6 text-center">No active bookings found. Schedule one above!</p>';
+                } else {
+                    container.innerHTML = bookings.map((b, idx) => `
+                        <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-2">
+                            <div class="flex justify-between items-center font-bold">
+                                <span class="text-emerald-600">${b.id}</span>
+                                <span class="text-slate-400">${b.date}</span>
+                            </div>
+                            <div class="text-navy-900 font-semibold">${b.services.join(', ')}</div>
+                            <div class="text-slate-500">${b.address} • ${b.slot}</div>
+                            <div class="pt-2 flex justify-between items-center border-t border-slate-200">
+                                <span class="text-[10px] text-slate-400">Status: Scheduled (Pending Phone Call)</span>
+                                <button onclick="cancelBooking(${idx})" class="text-red-500 font-bold text-[11px] hover:underline">Cancel Request</button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function cancelBooking(index) {
+            let bookings = JSON.parse(localStorage.getItem('ab_bookings') || '[]');
+            bookings.splice(index, 1);
+            localStorage.setItem('ab_bookings', JSON.stringify(bookings));
+            updateBookingBadge();
+            toggleMyBookingsModal(); // refresh view
+            toggleMyBookingsModal();
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('contactSuccess');
+            successMsg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                successMsg.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
